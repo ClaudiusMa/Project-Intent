@@ -10,7 +10,8 @@ import SwiftData
 
 @Model
 final class Item {
-    var timestamp: Date
+    var timestamp: Date = Date.now
+    var userIntent: String = "I want to ..."
     
     init(timestamp: Date) {
         self.timestamp = timestamp
