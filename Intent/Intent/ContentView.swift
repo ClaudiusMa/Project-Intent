@@ -4,22 +4,22 @@
 //
 //  Created by Claudius Ma on 10/15/24.
 //
-
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    @State private var showEntryView = true
 
     var body: some View {
         NavigationSplitView {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        DetailView(item: item)
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        Text(item.userIntent)
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -29,7 +29,7 @@ struct ContentView: View {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button(action: { showEntryView = true }) {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
@@ -37,12 +37,8 @@ struct ContentView: View {
         } detail: {
             Text("Select an item")
         }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
+        .sheet(isPresented: $showEntryView) {
+            EntryView()
         }
     }
 
@@ -52,6 +48,31 @@ struct ContentView: View {
                 modelContext.delete(items[index])
             }
         }
+    }
+}
+
+struct DetailView: View {
+    let item: Item
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                Text(item.userIntent)
+                    .font(.title3)
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Text("Created at: \(item.timestamp, format: .dateTime)")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .padding()
+            }
+            .background(Color.white)
+            .cornerRadius(12)
+            .padding()
+        }
+        .background(Color(.systemGray6))
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
