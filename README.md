@@ -1,6 +1,4 @@
 # Project Intent
-### Introduction:
-I've often found myself losing sight of my goals whenever I unlock my iPhone, getting distracted by notifications and social media. Sometimes, I wake up my device without any clear intention, feeling as if my interactions are driven by the phone rather than my own choices. This experience sparked my interest in exploring how awareness of intent affects our interactions with technology.
 
 ### Central Question: 
 How does awareness of intent affect the interaction between humans and technology?
