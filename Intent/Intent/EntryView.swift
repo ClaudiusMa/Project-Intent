@@ -42,7 +42,7 @@ struct EntryView: View {
                 Text("Record My Intent")
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color(.systemBlue))
+                    .background(Color(.accent))
                     .foregroundColor(.white)
                     .font(.body.bold())
                     .cornerRadius(10)
