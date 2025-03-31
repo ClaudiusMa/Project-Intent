@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D08A30F52D9A3CB500B019B6 /* DaydreamerDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = D08A30F42D9A3CB500B019B6 /* DaydreamerDesignSystem */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D0B907C22CBE3968007FFCFA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08A30F52D9A3CB500B019B6 /* DaydreamerDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +96,7 @@
 				D0B907AF2CBE3967007FFCFA /* Intent */,
 				D0B907C42CBE3968007FFCFA /* IntentTests */,
 				D0B907CE2CBE3968007FFCFA /* IntentUITests */,
+				D0C133862D904A7D0015C758 /* Frameworks */,
 				D0B907AE2CBE3967007FFCFA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +109,13 @@
 				D0B907CB2CBE3968007FFCFA /* IntentUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D0C133862D904A7D0015C758 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +138,7 @@
 			);
 			name = Intent;
 			packageProductDependencies = (
+				D08A30F42D9A3CB500B019B6 /* DaydreamerDesignSystem */,
 			);
 			productName = Intent;
 			productReference = D0B907AD2CBE3967007FFCFA /* Intent.app */;
@@ -208,6 +222,9 @@
 			);
 			mainGroup = D0B907A42CBE3967007FFCFA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D08A30E32D9A3B8100B019B6 /* XCRemoteSwiftPackageReference "DayDreamerDesignSystem" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D0B907AE2CBE3967007FFCFA /* Products */;
 			projectDirPath = "";
@@ -290,7 +307,7 @@
 				CODE_SIGN_ENTITLEMENTS = Intent/Intent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Intent/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = KP2952KF28;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -321,7 +338,7 @@
 				CODE_SIGN_ENTITLEMENTS = Intent/Intent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Intent/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = KP2952KF28;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -575,6 +592,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D08A30E32D9A3B8100B019B6 /* XCRemoteSwiftPackageReference "DayDreamerDesignSystem" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ClaudiusMa/DayDreamerDesignSystem.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D08A30F42D9A3CB500B019B6 /* DaydreamerDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D08A30E32D9A3B8100B019B6 /* XCRemoteSwiftPackageReference "DayDreamerDesignSystem" */;
+			productName = DaydreamerDesignSystem;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0B907A52CBE3967007FFCFA /* Project object */;
 }

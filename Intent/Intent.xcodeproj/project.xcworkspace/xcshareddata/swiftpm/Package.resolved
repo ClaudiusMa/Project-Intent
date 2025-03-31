@@ -1,0 +1,15 @@
+{
+  "originHash" : "4309eb254dacfe6c48b1f929caecad2cd484a9b396e7ef885057c7d653182d19",
+  "pins" : [
+    {
+      "identity" : "daydreamerdesignsystem",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:ClaudiusMa/DayDreamerDesignSystem.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "221b056eb9c781bfbc020ca64a6fc40eb1fca515"
+      }
+    }
+  ],
+  "version" : 3
+}

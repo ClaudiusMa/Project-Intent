@@ -6,6 +6,7 @@
 //
 import SwiftData
 import SwiftUI
+import DaydreamerDesignSystem
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
@@ -41,7 +42,9 @@ struct ContentView: View {
             EntryView()
         }
     }
-
+    
+    /// <#Description#>
+    /// - Parameter offsets: <#offsets description#>
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
