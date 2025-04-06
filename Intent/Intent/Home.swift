@@ -16,53 +16,69 @@ struct ContentView: View {
 
   // MARK: - Body
   var body: some View {
-    NavigationSplitView {
-      Text("Summary")
-        .font(.largeTitle.bold())
-      weeklySummaryView
-      todaysView
-    } detail: {
-      Text("Select an item")
-    }
-    .sheet(isPresented: $showEntryView) {
-      EntryView()
+    ZStack {
+      Color.backgroundDefaultBg.edgesIgnoringSafeArea(.all)
+      NavigationStack {
+        VStack{
+          weeklySummaryView
+          todaysView
+        }
+        .padding(.horizontal, Spacing.s400)
+        .navigationTitle("Summary")
+        .background(Color.backgroundDefaultBg)
+      }
+      .sheet(isPresented: $showEntryView) {
+        EntryView()
+      }
     }
   }
 
   // MARK: - View Components
   private var weeklySummaryView: some View {
     VStack{
-      Text("Weekly Summary")
+      Text("Top 3 This week")
         .font(.title3.bold())
+        .foregroundStyle(Color.textBrandSecondary)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.leading, Spacing.s100)
       List {
         // TODOs: Top 3 frequent things
-        ForEach(topThreeItems) { item in
-          Text(item.userIntent)
-        }
+        // ForEach(topThreeItems) { item in
+        //     Text(item.userIntent)
+        // }
       }
+      .cornerRadius(Radius.r300)
+      .listStyle(.plain)
+      .fixedSize(horizontal: false, vertical: true)
     }
   }
 
   private var todaysView: some View {
-    List {
-      ForEach(items) { item in
-        navigationLink(for: item)
+    VStack{
+      Text("Today")
+        .font(.title3.bold())
+        .foregroundStyle(Color.textBrandSecondary)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.leading, Spacing.s100)
+      List {
+        ForEach(items) { item in
+          navigationLink(for: item)
+        }
+        .onDelete(perform: deleteItems)
       }
-      .onDelete(perform: deleteItems)
-    }
-    .toolbar {
-      toolbarContent
+      .listStyle(.plain)
+      .cornerRadius(Radius.r300)
+//      .swipeActions(edge: .trailing) {
+//        deleteButton
+//      }
     }
   }
 
-  private var toolbarContent: some ToolbarContent {
-    Group {
-      ToolbarItem(placement: .navigationBarTrailing) {
-        EditButton()
-      }
-      ToolbarItem {
-        addButton
-      }
+  private var deleteButton: some View{
+    Button(action: {
+      // TODOs: add delete
+    }) {
+      Text("Delete")
     }
   }
 
@@ -94,7 +110,7 @@ private extension ContentView {
 
 // MARK: - Preview
 #Preview {
-  let mockTopThreeItems: [Item] = []
+//  let mockTopThreeItems: [Item] = []
 
   ContentView()
     .modelContainer(for: Item.self)
