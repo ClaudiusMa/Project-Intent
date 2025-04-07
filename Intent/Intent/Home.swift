@@ -21,8 +21,13 @@ struct ContentView: View {
       NavigationStack {
         VStack{
           weeklySummaryView
+            .padding(.top, Spacing.s400)
           todaysView
+            .padding(.top, Spacing.s200)
+          addButton
+            .padding(.top, Spacing.s600)
         }
+        .padding(.bottom, Spacing.s400)
         .padding(.horizontal, Spacing.s400)
         .navigationTitle("Summary")
         .background(Color.backgroundDefaultBg)
@@ -43,13 +48,16 @@ struct ContentView: View {
         .padding(.leading, Spacing.s100)
       List {
         // TODOs: Top 3 frequent things
-        // ForEach(topThreeItems) { item in
-        //     Text(item.userIntent)
-        // }
+        Text("Respond")
+        Text("Boredom")
+        Text("Work")
+          .listRowSeparator(.hidden, edges: .bottom)
+
       }
-      .cornerRadius(Radius.r300)
       .listStyle(.plain)
-      .fixedSize(horizontal: false, vertical: true)
+      .frame(maxHeight: 3*44)
+      // ToDo: make a component for the list, fully customize it
+      .cornerRadius(Radius.r300)
     }
   }
 
@@ -63,10 +71,11 @@ struct ContentView: View {
       List {
         ForEach(items) { item in
           navigationLink(for: item)
+//            .listRowSeparator(index == items.count - 1 ? .hidden : .visible, edges: .bottom)
         }
         .onDelete(perform: deleteItems)
       }
-      .listStyle(.plain)
+      .listStyle(.inset)
       .cornerRadius(Radius.r300)
 //      .swipeActions(edge: .trailing) {
 //        deleteButton
@@ -83,9 +92,16 @@ struct ContentView: View {
   }
 
   private var addButton: some View {
-    Button(action: { showEntryView = true }) {
-      Label("Add Item", systemImage: "plus")
-    }
+      Button(action: { showEntryView = true }) {
+        Text("Record My Intent")
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.backgroundBrandDefault)
+            .foregroundColor(.white)
+            .font(.body.bold())
+            .cornerRadius(Radius.r300)
+      }
+      .controlSize(.large)
   }
 
   private func navigationLink(for item: Item) -> some View {
